@@ -17,6 +17,7 @@ public class InputHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        cmock.GetComponent<Cmock>().Impulse = (eventData.position - startPosition) * speed;
+    	if (eventData.position - startPosition != Vector2.zero)
+	    cmock.GetComponent<CmockHead>().Impulse = (eventData.position - startPosition) * speed;
     }
 }
